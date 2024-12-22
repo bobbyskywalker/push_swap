@@ -1,12 +1,24 @@
 #include "../../includes/push_swap.h"
 
-void free_stack(t_stack **stack)
+// line 13 cnd breaks the circular reference (hangs in inf loop otherwise)
+void free_stack(t_stack **head)
 {
     t_stack *tmp;
-    while (*stack)
+    t_stack *current;
+
+    if (!head || !*head)
+        return;
+    
+    current = *head;
+    (*head)->prev->next = NULL;
+    
+    while (current != NULL)
     {
-        tmp = *stack;
-        *stack = (*stack)->next;
+        tmp = current;
+        current = current->next;
         free(tmp);
     }
+    *head = NULL;
 }
+
+

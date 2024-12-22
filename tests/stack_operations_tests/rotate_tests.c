@@ -33,7 +33,7 @@ void init_stack(t_stack **stack_a, t_stack **stack_b)
     }
 }
 
-// cc tests/stack_operations_tests/rotate_tests.c src/list_operations/sll_lib.c src/stack_operations/rotate.c lib/libft/libft.a -g
+// cc tests/stack_operations_tests/rotate_tests.c src/list_operations/dll_lib.c src/stack_operations/rotate.c lib/libft/libft.a -g
 int main()
 {
     t_stack *stack_a = NULL;

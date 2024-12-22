@@ -28,7 +28,7 @@ void init_stack(t_stack **stack_a, t_stack **stack_b)
         temp_b = temp_b->next;
     }
 }
-// cc tests/stack_operations_tests/swap_tests.c src/list_operations/sll_lib.c src/stack_operations/swap.c lib/libft/libft.a -g
+// cc tests/stack_operations_tests/swap_tests.c src/list_operations/dll_lib.c src/stack_operations/swap.c lib/libft/libft.a -g
 int main()
 {
     t_stack *stack_a = NULL;
@@ -38,7 +38,7 @@ int main()
     init_stack(&stack_a, &stack_b);
 
     printf("\nsecond: \n");
-    swap_s(&stack_a, &stack_b);
+    swap_both(&stack_a, &stack_b);
 
     t_stack *temp = stack_a;
     printf("stack_a: \n");

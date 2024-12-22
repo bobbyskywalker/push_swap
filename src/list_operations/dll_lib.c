@@ -46,7 +46,6 @@ void	lstadd_front(t_stack **stack, t_stack *new)
 	*stack = new;
 }
 
-
 void	lstadd_end(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
@@ -74,10 +73,11 @@ void	rm_node(t_stack **stack, t_stack *node)
 		return;
 	if (*stack == node && node->next == node)
 	{
-		free(node);
-		*stack = NULL;
-		return;
+    	free(node);
+    	*stack = NULL;
+    	return;
 	}
+
 	if (*stack == node)
 		*stack = node->next;
 	node->prev->next = node->next;
