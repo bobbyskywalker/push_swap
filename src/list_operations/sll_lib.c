@@ -9,6 +9,7 @@ t_stack	*create_node(int content)
 		return (NULL);
 	head->value = content;
 	head->next = NULL;
+	head->prev = NULL;
 	return (head);
 }
 
@@ -26,40 +27,60 @@ t_stack	*get_last(t_stack *stack)
 
 void	lstadd_front(t_stack **stack, t_stack *new)
 {
+	t_stack	*last;
+
+	if (!new)
+		return;
+	if (!*stack)
+	{
+		*stack = new;
+		new->next = new;
+		new->prev = new;
+		return;
+	}
+	last = (*stack)->prev;
 	new->next = *stack;
+	new->prev = last;
+	(*stack)->prev = new;
+	last->next = new;
 	*stack = new;
 }
+
 
 void	lstadd_end(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
 
-	last = get_last(*stack);
-	if (!last)
+	if (!new)
+		return;
+	if (!*stack)
+	{
 		*stack = new;
-	else
-		last->next = new;
+		new->next = new;
+		new->prev = new;
+		return;
+	}
+	last = (*stack)->prev;
+	new->next = *stack;
+	new->prev = last;
+	last->next = new;
+	(*stack)->prev = new;
 }
 
-void *rm_node(t_stack **stack, t_stack *node)
+// first 'if'- one node in stack, second 'if'- when removing head
+void	rm_node(t_stack **stack, t_stack *node)
 {
-    t_stack	*tmp;
-
-    tmp = *stack;
-    if (!tmp)
-        return (NULL);
-    if (tmp == node)
-    {
-        *stack = (*stack)->next;
-        free(node);
-        return (NULL);
-    }
-    while (tmp->next && tmp->next != node)
-        tmp = tmp->next;
-    if (tmp->next == node)
-    {
-        tmp->next = node->next;
-        free(node);
-        return (NULL);
-    }
+	if (!stack || !node)
+		return;
+	if (*stack == node && node->next == node)
+	{
+		free(node);
+		*stack = NULL;
+		return;
+	}
+	if (*stack == node)
+		*stack = node->next;
+	node->prev->next = node->next;
+	node->next->prev = node->prev;
+	free(node);
 }
