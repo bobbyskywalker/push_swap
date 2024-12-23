@@ -44,12 +44,14 @@ int main(int argc, char **argv)
         write(2, "Error\n", 6);
         return 1;
     }
-
     stack_a = NULL;
     stack_b = NULL;
+
     parse_stack(&stack_a, argv);
-    printf("%d", get_stack_size(&stack_a));
-    parse_stack(&stack_b, argv);
+    simplify_stack(&stack_a);
+
+    // alg func goes here
+
     free_stack(&stack_a);
     free_stack(&stack_b);
     return 0;

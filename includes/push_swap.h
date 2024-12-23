@@ -26,9 +26,10 @@ void        lstadd_end(t_stack **stack, t_stack *new);
 void        rm_node(t_stack **stack, t_stack *node);
 void        free_stack(t_stack **stack);
 
-// SECTION: utils
+// SECTION: stack utils
 void         parse_stack(t_stack	**stack, char **argv);
 int          get_stack_size(t_stack **head);
+void         simplify_stack(t_stack **stack_a);
 
 // SECTION: stack operations
 void        swap_ab(t_stack **stack);

@@ -19,38 +19,86 @@ int get_stack_size(t_stack **head)
     return (size);
 }
 
-// i: node tracker (not to break reference), j: indices index: 
-void    sort_stack(int *indices, t_stack **stack, int size)
+void create_arr(t_stack **stack, int *arr, int size)
 {
-    int lowest;
     int i;
-    int j;
-    t_stack *tmp;
+    t_stack *current;
 
-    tmp = *stack;
+    if (!arr)
+        return ;
+    current = *stack;
     i = 0;
-    j = 0;
-    lowest = tmp->value;
     while (i < size)
     {
-        if (tmp->value < lowest)
-            lowest = tmp->value;
-        tmp = tmp->next;
+        *arr = current->value;
+        current = current->next;
+        arr++;
         i++;
     }
-    indices[j++] = lowest;
-
 }
 
-// simplify to work on the "indices" based off a position 
-// in a sorted list; achieved with selection sort (kinda lol)
-void    simplify_stack(t_stack **stack)
+// selection sort d*_*b
+void sort_arr(int *arr, int len)
 {
-    int *indices;
+    int min;
+    int tmp;
+    int i;
+    int j;
+
+    i = 0;
+    while (i < len)
+    {
+        min = i;
+        j = i + 1;
+        while (j < len)
+        {
+            if (arr[j] < arr[min])
+                min = j;
+            j++;
+        }
+        tmp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = tmp;
+        i++;
+    }
+}
+
+void update_stack(t_stack **stack, int *arr, int size)
+{
+    t_stack *current;
+    int i;
+    int j;
+
+    i = 0;
+    while (i < size)    
+    {
+        j = 0;
+        current = *stack;
+        while (j < size)
+        {
+            if (arr[i] == current->value)
+                current->value = i;
+            current = current->next;
+            j++;
+        }
+        i++;
+    }
+}
+
+// simplified dll to work on the "indices" based off a position 
+// in a sorted list, in order to work with radix sort
+void    simplify_stack(t_stack **stack_a)
+{
+    int *arr;
     int size;
 
-    size = get_stack_size(&stack);
-    indices = (int *) malloc (size * sizeof(int));
-    if (!indices)
+    size = get_stack_size(stack_a);
+    arr = malloc (size * sizeof(int));
+    if (!arr)
         return ;
+    create_arr(stack_a, arr, size);
+    sort_arr(arr, size);
+    update_stack(stack_a, arr, size);
+    free(arr);
+    arr = NULL;
 }
