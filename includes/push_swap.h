@@ -28,6 +28,7 @@ void        free_stack(t_stack **stack);
 
 // SECTION: utils
 void         parse_stack(t_stack	**stack, char **argv);
+int          get_stack_size(t_stack **head);
 
 // SECTION: stack operations
 void        swap_ab(t_stack **stack);

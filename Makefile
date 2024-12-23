@@ -5,7 +5,7 @@ NAME = push_swap
 
 SRCS = src/list_operations/dll_lib.c src/list_operations/free_stack.c \
       src/stack_operations/rotate.c src/stack_operations/push.c src/stack_operations/swap.c \
-      src/main.c src/parse_stack.c
+      src/main.c src/parse_stack.c src/sort_stack.c
 
 OBJS = $(SRCS:.c=.o)
 
