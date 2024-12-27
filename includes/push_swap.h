@@ -40,4 +40,7 @@ void        rotate_down(t_stack **stack);
 void        rotate_both_up(t_stack **stack_a, t_stack **stack_b);
 void        rotate_both_down(t_stack **stack_a, t_stack **stack_b);
 
+// MAIN ALGORITHM FUNC
+void        push_swap(t_stack **stack_a, t_stack **stack_b, int size);
+
 #endif 

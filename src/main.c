@@ -39,6 +39,7 @@ int main(int argc, char **argv)
 {
     t_stack *stack_a;
     t_stack *stack_b;
+    int			size;
 
     if (argc < 2 || check_args(argv) || is_duplicate(argv)) {
         write(2, "Error\n", 6);
@@ -49,8 +50,9 @@ int main(int argc, char **argv)
 
     parse_stack(&stack_a, argv);
     simplify_stack(&stack_a);
-
-    // alg func goes here
+	size = get_stack_size(&stack_a);
+	
+    push_swap(&stack_a, &stack_b, size);
 
     free_stack(&stack_a);
     free_stack(&stack_b);
