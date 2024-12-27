@@ -15,10 +15,11 @@ void push_swap(t_stack **stack_a, t_stack **stack_b, int size)
 	max_bits = 0;
 	i = 0;
 	j = 0;
-	while (max_num >> max_bits)
+	while ((max_num >> max_bits) != 0)
 		max_bits++;
 	while (i < max_bits)
 	{
+		j = 0;
 		while (j < size)
 		{
 			cur_num = (*stack_a)->value;

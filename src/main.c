@@ -51,9 +51,25 @@ int main(int argc, char **argv)
     parse_stack(&stack_a, argv);
     simplify_stack(&stack_a);
 	size = get_stack_size(&stack_a);
-	
+
+	// t_stack *tmp = stack_a;	
+
+	// ft_printf("STACK A BEFORE:\n");
+	// for (int i = 0; i < size; i++)
+	// {
+	// 	ft_printf("%d\n", tmp->value);
+	// 	tmp = tmp->next;
+	// }
+
     push_swap(&stack_a, &stack_b, size);
 
+	// ft_printf("STACK A AFTER:\n");
+	// tmp = stack_a;
+	// for (int i = 0; i < size; i++)
+	// {
+	// 	ft_printf("%d", tmp->value);
+	// 	tmp = tmp->next;
+	// }
     free_stack(&stack_a);
     free_stack(&stack_b);
     return 0;
