@@ -28,6 +28,7 @@ int     check_args(char **argv)
     i = 1;
     while (argv[i])
     {
+        //TODO: safer atoi
         if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN || (ft_atoi(argv[i]) == 0 && argv[i][0] != '0'))
             return (1);
         i++;
@@ -35,42 +36,59 @@ int     check_args(char **argv)
     return (0);
 }
 
+int is_sorted(t_stack **stack, int size)
+{
+    int i;
+    t_stack *current;
+
+    i = 0;
+    current = *stack;
+
+    while (i < size - 1)
+    {
+        if (current->value > current->next->value)
+            return (0);
+        current = current->next;
+        i++;
+    }
+    return (1);
+}
+
 int main(int argc, char **argv)
 {
     t_stack *stack_a;
     t_stack *stack_b;
+    char        **args_list;
     int			size;
+    int         i;
 
-    if (argc < 2 || check_args(argv) || is_duplicate(argv)) {
+    if (check_args(argv) || is_duplicate(argv)) {
         write(2, "Error\n", 6);
-        return 1;
+        return (1);
+    }
+    i = 1;
+    if (argc == 2)
+    {
+        args_list = ft_split(argv[1], ' ');
+        if (!argv[1])
+        {
+            free_2d(args_list);
+            return (1);
+        }
+        i = 0;
     }
     stack_a = NULL;
     stack_b = NULL;
-
-    parse_stack(&stack_a, argv);
+    parse_stack(&stack_a, argv, i);
+    size = get_stack_size(&stack_a);
+    if (is_sorted(&stack_a, size))
+    {
+        free_stack(&stack_a);
+        return (0);
+    }
     simplify_stack(&stack_a);
-	size = get_stack_size(&stack_a);
-
-	// t_stack *tmp = stack_a;	
-
-	// ft_printf("STACK A BEFORE:\n");
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	ft_printf("%d\n", tmp->value);
-	// 	tmp = tmp->next;
-	// }
-
     push_swap(&stack_a, &stack_b, size);
-
-	// ft_printf("STACK A AFTER:\n");
-	// tmp = stack_a;
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	ft_printf("%d", tmp->value);
-	// 	tmp = tmp->next;
-	// }
     free_stack(&stack_a);
     free_stack(&stack_b);
-    return 0;
+    return (0);
 }

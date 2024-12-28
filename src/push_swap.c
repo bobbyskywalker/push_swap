@@ -1,15 +1,12 @@
 #include "../includes/push_swap.h"
 
-// 1. perform the algortithm
-// 2. print the operations each time they are executed ('\n' !)
-
 void push_swap(t_stack **stack_a, t_stack **stack_b, int size)
 {
     int	max_num;
 	int max_bits;
 	int i;
 	int j;
-	int cur_num;
+	int	cur_num;
 
 	max_num = size - 1;
 	max_bits = 0;

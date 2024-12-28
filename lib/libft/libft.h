@@ -59,6 +59,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				free_2d(char **arr);
 
 // SECTION PRINTF:
 int					ft_print_hex(uintptr_t arg, int case_p);

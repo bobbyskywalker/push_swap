@@ -27,7 +27,7 @@ void        rm_node(t_stack **stack, t_stack *node);
 void        free_stack(t_stack **stack);
 
 // SECTION: stack utils
-void         parse_stack(t_stack	**stack, char **argv);
+void         parse_stack(t_stack **stack, char **argv, int i);
 int          get_stack_size(t_stack **head);
 void         simplify_stack(t_stack **stack_a);
 
