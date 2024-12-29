@@ -40,6 +40,13 @@ void        rotate_down(t_stack **stack);
 void        rotate_both_up(t_stack **stack_a, t_stack **stack_b);
 void        rotate_both_down(t_stack **stack_a, t_stack **stack_b);
 
+// SECTION: input validation
+int         error_handler(int argc, char **argv, int i);
+int         format_input(int argc, char ***argv);
+int         is_duplicate(char **argv);
+int         check_args(char **argv);
+int         is_sorted(t_stack **stack, int size);
+
 // MAIN ALGORITHM FUNC
 void        push_swap(t_stack **stack_a, t_stack **stack_b, int size);
 

@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void free_2d(char **arr)
+void ft_arr2d_free(char **arr)
 {
     int i;
 
