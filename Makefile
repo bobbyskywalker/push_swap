@@ -7,7 +7,7 @@ SRCS = src/list_operations/dll_lib.c src/list_operations/free_stack.c \
       src/stack_operations/rotate.c src/stack_operations/push.c src/stack_operations/swap.c \
       src/parser/parse_stack.c src/parser/sort_stack.c \
 	  src/input_validation/format.c src/input_validation/validation.c \
-	  src/input_validation/error_handler.c \
+	  src/input_validation/error_handler.c src/input_validation/utils.c \
 	  src/push_swap.c src/main.c
 
 OBJS = $(SRCS:.c=.o)

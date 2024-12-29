@@ -21,15 +21,14 @@ int is_duplicate(char **argv)
     return (0);
 }
 
-int     check_args(char **argv)
+int     check_args(char **argv, int i)
 {
-    int i;
-
-    i = 1;
+    long    val;
+    
+    ft_safe_atoi(argv[i], &val);
     while (argv[i])
     {
-        //TODO: safer atoi
-        if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN || (ft_atoi(argv[i]) == 0 && argv[i][0] != '0'))
+        if (val > INT_MAX || val < INT_MIN || (val == 0 && argv[i][0] != '0'))
             return (1);
         i++;
     }

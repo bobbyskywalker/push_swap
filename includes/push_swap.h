@@ -44,8 +44,9 @@ void        rotate_both_down(t_stack **stack_a, t_stack **stack_b);
 int         error_handler(int argc, char **argv, int i);
 int         format_input(int argc, char ***argv);
 int         is_duplicate(char **argv);
-int         check_args(char **argv);
+int         check_args(char **argv, int i);
 int         is_sorted(t_stack **stack, int size);
+int         ft_safe_atoi(const char *str, long *result);
 
 // MAIN ALGORITHM FUNC
 void        push_swap(t_stack **stack_a, t_stack **stack_b, int size);
