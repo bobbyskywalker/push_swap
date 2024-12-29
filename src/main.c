@@ -22,7 +22,7 @@ int main(int argc, char **argv)
         return (0);
     }
     simplify_stack(&stack_a);
-    push_swap(&stack_a, &stack_b, size);
+    push_swap_radix(&stack_a, &stack_b, size);
     free_stack(&stack_a);
     free_stack(&stack_b);
     if (argc == 2)

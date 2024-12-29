@@ -59,7 +59,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_arr2d_free(char **arr);
 
 // SECTION PRINTF:
 int					ft_print_hex(uintptr_t arg, int case_p);
@@ -70,7 +69,9 @@ int					ft_print_str(char *str);
 int					ft_print_char(char c);
 int					ft_printf(const char *format, ...);
 
-char				*get_next_line(int fd);
+//SECTION: new
+void				ft_slc_sort(int *arr, int len);
+void				ft_arr2d_free(char **arr);
 
 // SECTION LINKED LISTS:
 typedef struct s_list

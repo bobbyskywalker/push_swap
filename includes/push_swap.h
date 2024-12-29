@@ -49,6 +49,6 @@ int         is_sorted(t_stack **stack, int size);
 int         ft_safe_atoi(const char *str, long *result);
 
 // MAIN ALGORITHM FUNC
-void        push_swap(t_stack **stack_a, t_stack **stack_b, int size);
+void        push_swap_radix(t_stack **stack_a, t_stack **stack_b, int size);
 
 #endif 
