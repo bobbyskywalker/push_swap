@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:44:03 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 17:50:28 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:39:15 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	do_push(t_stack **stack_from, t_stack **stack_to, t_stack *tmp_node)
 	*stack_to = tmp_node;
 }
 
-void	push(t_stack **stack_from, t_stack **stack_to)
+void	push(t_stack **stack_from, t_stack **stack_to, char id)
 {
 	t_stack	*tmp_node;
 
@@ -45,4 +45,8 @@ void	push(t_stack **stack_from, t_stack **stack_to)
 		return ;
 	tmp_node = *stack_from;
 	do_push(stack_from, stack_to, tmp_node);
+	if (id == 'a')
+		ft_printf("pa\n");
+	else if (id == 'b')
+		ft_printf("pb\n");
 }

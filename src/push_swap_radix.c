@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:54:49 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 17:55:21 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:43:20 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,13 @@ void	push_swap_radix(t_stack **stack_a, t_stack **stack_b, int size)
 		{
 			cur_num = (*stack_a)->value;
 			if (((cur_num >> i) & 1) == 1)
-			{
-				rotate_up(stack_a);
-				ft_printf("ra\n");
-			}
+				rotate_up(stack_a, 'a');
 			else
-			{
-				push(stack_a, stack_b);
-				ft_printf("pb\n");
-			}
+				push(stack_a, stack_b, 'b');
 			j++;
 		}
 		while ((*stack_b))
-		{
-			push(stack_b, stack_a);
-			ft_printf("pa\n");
-		}
+			push(stack_b, stack_a, 'a');
 		i++;
 	}
 }
