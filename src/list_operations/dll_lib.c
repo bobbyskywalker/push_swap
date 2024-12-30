@@ -1,10 +1,22 @@
-# include "../../includes/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dll_lib.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/30 17:35:27 by agarbacz          #+#    #+#             */
+/*   Updated: 2024/12/30 17:35:30 by agarbacz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../includes/push_swap.h"
 
 t_stack	*create_node(int content)
 {
 	t_stack	*head;
 
-	head = (t_stack *) malloc (sizeof(t_stack));
+	head = (t_stack *)malloc(sizeof(t_stack));
 	if (!head)
 		return (NULL);
 	head->value = content;
@@ -30,13 +42,13 @@ void	lstadd_front(t_stack **stack, t_stack *new)
 	t_stack	*last;
 
 	if (!new)
-		return;
+		return ;
 	if (!*stack)
 	{
 		*stack = new;
 		new->next = new;
 		new->prev = new;
-		return;
+		return ;
 	}
 	last = (*stack)->prev;
 	new->next = *stack;
@@ -51,13 +63,13 @@ void	lstadd_end(t_stack **stack, t_stack *new)
 	t_stack	*last;
 
 	if (!new)
-		return;
+		return ;
 	if (!*stack)
 	{
 		*stack = new;
 		new->next = new;
 		new->prev = new;
-		return;
+		return ;
 	}
 	last = (*stack)->prev;
 	new->next = *stack;
@@ -70,14 +82,13 @@ void	lstadd_end(t_stack **stack, t_stack *new)
 void	rm_node(t_stack **stack, t_stack *node)
 {
 	if (!stack || !node)
-		return;
+		return ;
 	if (*stack == node && node->next == node)
 	{
-    	free(node);
-    	*stack = NULL;
-    	return;
+		free(node);
+		*stack = NULL;
+		return ;
 	}
-
 	if (*stack == node)
 		*stack = node->next;
 	node->prev->next = node->next;
