@@ -6,27 +6,35 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:54:49 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 19:43:20 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:01:42 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // radix sort algorithm (for big stacks only)
-void	push_swap_radix(t_stack **stack_a, t_stack **stack_b, int size)
+int	get_max_bits(int size)
 {
 	int	max_num;
+	int	max_bits;
+
+	max_num = size - 1;
+	max_bits = 0;
+	while ((max_num >> max_bits) != 0)
+		max_bits++;
+	return (max_bits);
+}
+
+void	push_swap_radix(t_stack **stack_a, t_stack **stack_b, int size)
+{
 	int	max_bits;
 	int	i;
 	int	j;
 	int	cur_num;
 
-	max_num = size - 1;
-	max_bits = 0;
+	max_bits = get_max_bits(size);
 	i = 0;
 	j = 0;
-	while ((max_num >> max_bits) != 0)
-		max_bits++;
 	while (i < max_bits)
 	{
 		j = 0;

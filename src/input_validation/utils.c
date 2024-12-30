@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:24:26 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 18:26:04 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:20:06 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_isspace(int c)
 	return (0);
 }
 
+// more of an atol lol
 int	ft_safe_atoi(const char *str, long *result)
 {
 	long	num;

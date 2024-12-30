@@ -6,12 +6,13 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:35:27 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 17:35:30 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:18:08 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// a doubly linked list library for stack management
 t_stack	*create_node(int content)
 {
 	t_stack	*head;

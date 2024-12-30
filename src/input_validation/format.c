@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:19:47 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 17:26:35 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:19:51 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // returns 1 on: modifying not needed
 // returns 0 on: modified argv
 // the i variable is crucial to the parse_stack() func
+// due to overwriting the original argv
 // it is passed to the error_handler() to verify correctness
 int	format_input(int argc, char ***argv)
 {

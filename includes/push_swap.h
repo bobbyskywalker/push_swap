@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:58:56 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 19:42:30 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:11:04 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,16 @@ int					check_args(char **argv, int i);
 int					is_sorted(t_stack **stack, int size);
 int					ft_safe_atoi(const char *str, long *result);
 
-
 // SECTION: TURK'S ALGORITHM
-void				sort_three(t_stack **stack_a);
+void				sort_small(t_stack **stack_a, int size);
 int					find_min(t_stack **stack);
 int					find_max(t_stack **stack);
 int					is_stack_sorted(t_stack **stack, int size);
 int					find_pos(t_stack **stack, int val);
 
-
 // MAIN ALGORITHM FUNC
 void				push_swap_radix(t_stack **stack_a, t_stack **stack_b,
 						int size);
+void				push_swap(t_stack **stack_a, t_stack **stack_b, int size);
 
 #endif

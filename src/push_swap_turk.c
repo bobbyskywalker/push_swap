@@ -6,14 +6,19 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:34:03 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 19:50:37 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:12:50 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_three(t_stack **stack_a)
+void	sort_small(t_stack **stack_a, int size)
 {
+	if (size == 2 && (*stack_a)->value > (*stack_a)->next->value)
+	{
+			swap_ab(stack_a, 'a');
+			return ;
+	}
 	if ((find_min(stack_a) == (*stack_a)->value))
 	{
 		rotate_down(stack_a, 'a');
@@ -32,4 +37,12 @@ void	sort_three(t_stack **stack_a)
 		else
 			swap_ab(stack_a, 'a');
 	}
+}
+
+void push_swap(t_stack **stack_a, t_stack **stack_b, int size)
+{
+	if (size <= 3)
+		sort_small(stack_a, size);
+	//else
+		// sort_big(stack_a, stack_b, size);
 }

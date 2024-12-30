@@ -6,12 +6,14 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:19:44 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 17:26:14 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:19:23 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// func handles errors from input validation
+// frees remaining memory if required
 int	error_handler(int argc, char **argv, int i)
 {
 	if (argc < 2)

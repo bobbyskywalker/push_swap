@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:36:10 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 17:38:49 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:17:26 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	update_stack(t_stack **stack, int *arr, int size)
 }
 
 // simplified dll to work on the "indices" based off a position
-// in a sorted list, in order to work with radix sort
+// in a sorted list, in order to work with radix/turk alg
 void	simplify_stack(t_stack **stack_a)
 {
 	int	*arr;

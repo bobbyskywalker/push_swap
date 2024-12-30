@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:53:19 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 19:28:42 by agarbacz         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:11:13 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	}
 	simplify_stack(&stack_a);
 	// push_swap_radix(&stack_a, &stack_b, size);
-	sort_three(&stack_a);
+	push_swap(&stack_a, &stack_b, size);
 	free_stacks(&stack_a, &stack_b);
 	if (argc == 2)
 		ft_arr2d_free(argv);
