@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:34:03 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 20:36:47 by agarbacz         ###   ########.fr       */
+/*   Updated: 2025/01/02 14:56:41 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int size)
 		swap_ab(stack_a, 'a');
 	if (size == 3)
 		sort_three(stack_a);
-	// else
-	// sort_big(stack_a, stack_b, size);
+	else
+		sort_big(stack_a, stack_b, size);
 }

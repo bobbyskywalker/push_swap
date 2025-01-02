@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:58:56 by agarbacz          #+#    #+#             */
-/*   Updated: 2024/12/30 20:28:22 by agarbacz         ###   ########.fr       */
+/*   Updated: 2025/01/02 16:58:18 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 typedef struct s_stack
 {
 	int				value;
+	int				price;
+	int				target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
@@ -66,6 +68,7 @@ int					find_min(t_stack **stack);
 int					find_max(t_stack **stack);
 int					is_stack_sorted(t_stack **stack, int size);
 int					find_pos(t_stack **stack, int val);
+t_stack				*find_target(t_stack **stack_b, t_stack *node);
 
 // MAIN ALGORITHM FUNC
 void				push_swap_radix(t_stack **stack_a, t_stack **stack_b,
