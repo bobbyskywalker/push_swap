@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:32:19 by agarbacz          #+#    #+#             */
-/*   Updated: 2025/01/03 16:12:54 by agarbacz         ###   ########.fr       */
+/*   Updated: 2025/01/03 19:00:01 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ int	find_pos(t_stack **stack, int val)
 	}
 	return (i);
 }
-

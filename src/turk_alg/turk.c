@@ -3,67 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   turk.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:17:56 by agarbacz          #+#    #+#             */
-/*   Updated: 2025/01/03 18:39:03 by mwiacek          ###   ########.fr       */
+/*   Updated: 2025/01/03 20:26:15 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    get_prices(t_stack **stack_a, t_stack **stack_b)
+void	push_all_b(t_stack **stack_a, t_stack **stack_b)
 {
-    int size;
-    int i;
-    t_stack *tmp;
+	t_stack	*cheapest_node;
 
-    size = get_stack_size(stack_a);
-    tmp = *stack_a;
-    i = 0;
-    while (i != get_stack_size(stack_a))
-    {
-        tmp->price = calc_p_ra_rb(stack_a, stack_b, tmp);
-        if (calc_p_ra_rrb(stack_a, stack_b, tmp) < tmp->price)
-            tmp->price = calc_p_ra_rrb(stack_a, stack_b, tmp);
-        if (calc_p_rra_rb(stack_a, stack_b, tmp) < tmp->price)
-            tmp->price = calc_p_rra_rb(stack_a, stack_b, tmp);
-        if (calc_p_rra_rrb(stack_a, stack_b, tmp) < tmp->price)
-            tmp->price = calc_p_rra_rrb(stack_a, stack_b, tmp);
-        tmp = tmp->next;
-        i++;
-    }
+	push(stack_a, stack_b, 'b');
+	push(stack_a, stack_b, 'b');
+	while (get_stack_size(stack_a) > 3)
+	{
+		get_targets(stack_a, stack_b);
+		get_prices(stack_a, stack_b);
+		cheapest_node = find_cheapest(stack_a);
+		rotate_best(stack_a, stack_b, cheapest_node);
+		push(stack_a, stack_b, 'b');
+	}
 }
 
-t_stack *find_cheapest(t_stack **stack_a)
+void    push_back_a(t_stack **stack_a, t_stack **stack_b)
 {
-    t_stack *cheapest;
-    t_stack *tmp;
-
-    cheapest = *stack_a;
-    tmp = (*stack_a)->next;
-    while (tmp != (*stack_a))
-    {
-        if (cheapest->price > tmp->price)
-            cheapest = tmp;
-        tmp = tmp->next;
-    }
-    return (cheapest);
-}
-
-void    push_all_b(t_stack **stack_a, t_stack **stack_b)
-{
-    t_stack *cheapest_node;
+    t_stack *max;
     
-    push(stack_a, stack_b, 'b');
-    push(stack_a, stack_b, 'b');
-    while (get_stack_size(stack_a) > 3)
-    {
-        get_targets(stack_a, stack_b);
-        get_prices(stack_a, stack_b);
-        cheapest_node = find_cheapest(stack_a);
-        rotate_best(stack_a, stack_b, cheapest_node);
-        push(stack_a, stack_b, 'b');
-    }
+    max = find_max(stack_b);
+    while (*stack_b != max)
+        rotate_down(stack_b, 'b');
+    while (*stack_b)
+        push(stack_b, stack_a, 'a');
 }
-
