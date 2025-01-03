@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:06:55 by agarbacz          #+#    #+#             */
-/*   Updated: 2025/01/03 14:22:09 by agarbacz         ###   ########.fr       */
+/*   Updated: 2025/01/03 15:58:34 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	rotate_ra_rb(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 		rotate_up(stack_a, 'a');
 	while (*stack_b != node->target)
 		rotate_up(stack_b, 'b');
-	(*stack_a)->price = 0;
+	node->price = 0;
 }
 
 static void	rotate_rra_rb(t_stack **stack_a, t_stack **stack_b, t_stack *node)
@@ -31,7 +31,7 @@ static void	rotate_rra_rb(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 		rotate_down(stack_a, 'a');
 	while (*stack_b != node->target)
 		rotate_up(stack_b, 'b');
-	(*stack_a)->price = 0;
+	node->price = 0;
 }
 
 static void	rotate_ra_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *node)
@@ -40,7 +40,7 @@ static void	rotate_ra_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 		rotate_up(stack_a, 'a');
 	while (*stack_b != node->target)
 		rotate_down(stack_b, 'b');
-	(*stack_a)->price = 0;
+	node->price = 0;
 }
 
 static void	rotate_rra_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *node)
@@ -51,7 +51,7 @@ static void	rotate_rra_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 		rotate_down(stack_a, 'a');
 	while (*stack_b != node->target)
 		rotate_down(stack_b, 'b');
-	(*stack_a)->price = 0;
+	node->price = 0;
 }
 
 void	rotate_best(t_stack **stack_a, t_stack **stack_b, t_stack *node)

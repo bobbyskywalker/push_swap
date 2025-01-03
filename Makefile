@@ -9,7 +9,7 @@ SRCS = src/list_operations/dll_lib.c src/list_operations/free_stack.c \
 	  src/input_validation/format.c src/input_validation/validation.c \
 	  src/input_validation/error_handler.c src/input_validation/utils.c \
 	  src/push_swap_radix.c src/main.c src/push_swap_turk.c src/turk_alg/turk_utils.c \
-	  src/turk_alg/calc_price.c src/turk_alg/rotations.c src/turk_alg/turk.c
+	  src/turk_alg/calc_price.c src/turk_alg/rotations.c src/turk_alg/turk.c src/turk_alg/targets.c
 
 OBJS = $(SRCS:.c=.o)
 

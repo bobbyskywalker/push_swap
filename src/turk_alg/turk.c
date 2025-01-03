@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:17:56 by agarbacz          #+#    #+#             */
-/*   Updated: 2025/01/03 14:50:32 by agarbacz         ###   ########.fr       */
+/*   Updated: 2025/01/03 16:15:00 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,13 @@ void    push_all_b(t_stack **stack_a, t_stack **stack_b)
         rotate_best(stack_a, stack_b, cheapest_node);
         push(stack_a, stack_b, 'b');
     }
+}
+
+void    push_back_a(t_stack **stack_a, t_stack **stack_b)
+{
+    while (*stack_b)
+    {
+        push(stack_b, stack_a, 'a');
+    }
+    rotate_up(stack_a, 'a');
 }
