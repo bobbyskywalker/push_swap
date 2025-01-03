@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:34:03 by agarbacz          #+#    #+#             */
-/*   Updated: 2025/01/03 14:40:09 by agarbacz         ###   ########.fr       */
+/*   Updated: 2025/01/03 18:07:06 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,13 @@ void	sort_three(t_stack **stack_a)
 }
 
 void	sort_big(t_stack **stack_a, t_stack **stack_b)
-{
+{	
 	push_all_b(stack_a, stack_b);
 	sort_three(stack_a);
 }
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	(void)stack_b;
 	if (size == 2 && (*stack_a)->value > (*stack_a)->next->value)
 		swap_ab(stack_a, 'a');
 	if (size == 3)

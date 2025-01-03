@@ -6,7 +6,7 @@
 /*   By: agarbacz <agarbacz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 16:11:58 by agarbacz          #+#    #+#             */
-/*   Updated: 2025/01/03 16:14:12 by agarbacz         ###   ########.fr       */
+/*   Updated: 2025/01/03 18:06:22 by agarbacz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 // node param: node from stack a which
 // we are assigning a stack b target to
 // (to place above)
-t_stack		*find_target(t_stack **stack_b, t_stack *node)
+t_stack	*find_target(t_stack **stack_b, t_stack *node)
 {
-	t_stack *min;
+	t_stack	*min;
 	t_stack	*max;
 
 	min = find_min(stack_b);
